@@ -1,0 +1,10 @@
+{
+  "DeprecatedVersion": "7.0.0",
+  "InstallationPageUrl": "https://github.com/vpnhood/VpnHood.App.Connect/releases/download/v7.8.805/VpnHoodClient-android-arm64-web.apk",
+  "UpdateInfoUrl": "https://github.com/vpnhood/VpnHood.App.Connect/releases/latest/download/VpnHoodClient-android-arm64-web.json",
+  "NotificationDelay": "03:00:00",
+  "PackageId": "com.vpnhood.client.android.web",
+  "PackageUrl": "https://github.com/vpnhood/VpnHood.App.Connect/releases/download/v7.8.805/VpnHoodClient-android-arm64-web.apk",
+  "Version": "7.8.805",
+  "ReleaseDate": "2026-04-27T05:58:35"
+}

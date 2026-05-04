@@ -1,0 +1,7 @@
+{
+  "ExeFile": "v7.8.805/VpnHoodClient",
+  "InstallScriptUrl": "https://github.com/vpnhood/VpnHood/releases/download/v7.8.805/VpnHoodClient-linux-x64.sh",
+  "UpdateCode": "5EE5047D-6E67-43D4-A90D-665813CA1E7F",
+  "UpdateInfoUrl": "https://github.com/vpnhood/VpnHood/releases/latest/download/VpnHoodClient-linux-x64.json",
+  "Version": "7.8.805"
+}

@@ -1,0 +1,12 @@
+{
+  "UpdateInfoUrl": "https://github.com/vpnhood/VpnHood/releases/latest/download/VpnHoodClient-android.json",
+  "GooglePlayUrl": "https://play.google.com/store/apps/details?id=com.vpnhood.client.android",
+  "PackageUrl": "https://github.com/vpnhood/VpnHood/releases/download/v7.8.805/VpnHoodClient-android.apk",
+  "ReleaseDate": "2026-04-25T00:17:53",
+  "InstallationPageUrl": "https://github.com/vpnhood/VpnHood/releases/download/v7.8.805/VpnHoodClient-android.apk",
+  "Version": "7.8.805",
+  "NotificationDelay": "7.00:00:00",
+  "DeprecatedVersion": "7.0.0",
+  "PackageId": "com.vpnhood.client.android",
+  "Rollout": "1.00"
+}

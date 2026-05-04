@@ -1,0 +1,9 @@
+{
+  "Version": "7.8.805",
+  "InstallationPageUrl": "https://github.com/vpnhood/VpnHood/wiki/Install-VpnHood-Client",
+  "NotificationDelay": "03:00:00",
+  "UpdateInfoUrl": "https://github.com/vpnhood/VpnHood/releases/latest/download/VpnHoodClient-win-x64.json",
+  "ReleaseDate": "2026-04-25T00:16:37",
+  "DeprecatedVersion": "7.0.0",
+  "PackageUrl": "https://github.com/vpnhood/VpnHood/releases/download/v7.8.805/VpnHoodClient-win-x64.msi"
+}

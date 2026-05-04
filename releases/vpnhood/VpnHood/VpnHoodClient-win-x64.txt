@@ -1,0 +1,16 @@
+;aiu;
+
+[Update]
+Name = VpnHood! CLIENT 7.8.805
+ProductVersion = 7.8.805
+URL = https://github.com/vpnhood/VpnHood/releases/download/v7.8.805/VpnHoodClient-win-x64.msi
+Size = 91120128
+SHA256 = 80602452AB58CF6F668BE3B1478006A148FBB014F4B91F7E3EB30CCCB48DAFA9
+MD5 = 951AEC41B7CB3934025234C672E722B2
+ServerFileName = VpnHoodClient-win-x64.msi
+Flags = NoRedetect
+RegistryKey = HKUD\Software\VpnHoodClient\VpnHoodClient\Version
+Version = 7.8.805
+UpdatedApplications = VpnHood! CLIENT(1.0-7.8.805)
+Description = <a href="https://github.com/vpnhood/VpnHood/blob/main/CHANGELOG.md">Release note</a>
+
