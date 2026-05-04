@@ -157,5 +157,13 @@ sha256sum FILE_NAME
 
 
 <!-- RELEASES_START -->
+<div id="davudsedft--purvpn"></div>
 
+### davudsedft--purvpn
+
+🔗 [source](https://github.com/davudsedft/purvpn) – [<code><small>11.9</small></code>](https://github.com/davudsedft/purvpn/releases/tag/11.9)
+
+| File | Size | Download |
+|------|------|----------|
+| `purvpn-11.9-release.apk` | 80.3 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/davudsedft/purvpn/purvpn-11.9-release.apk) |
 <!-- RELEASES_END -->
