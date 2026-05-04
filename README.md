@@ -157,6 +157,34 @@ sha256sum FILE_NAME
 
 
 <!-- RELEASES_START -->
+<div id="unboundtechco--defyxvpn"></div>
+
+### UnboundTechCo--defyxVPN
+
+🔗 [source](https://github.com/UnboundTechCo/defyxVPN) – [<code><small>v5.2.8</small></code>](https://github.com/UnboundTechCo/defyxVPN/releases/tag/v5.2.8)
+
+| File | Size | Download |
+|------|------|----------|
+| `app-arm64-v8a-release.apk` | 79.2 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/UnboundTechCo/defyxVPN/app-arm64-v8a-release.apk) |
+| `app-armeabi-v7a-release.apk` | 73.9 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/UnboundTechCo/defyxVPN/app-armeabi-v7a-release.apk) |
+| `app-x86_64-release.apk` | 83.4 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/UnboundTechCo/defyxVPN/app-x86_64-release.apk) |
+| `windows-release.zip` | 31.5 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/UnboundTechCo/defyxVPN/windows-release.zip) |
+
+---
+
+<div id="ceno-app--ceno-android"></div>
+
+### ceno-app--ceno-android
+
+🔗 [source](https://github.com/ceno-app/ceno-android) – [<code><small>v2.9.1</small></code>](https://github.com/ceno-app/ceno-android/releases/tag/v2.9.1)
+
+| File | Size | Download |
+|------|------|----------|
+| `sha256sums.txt` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/ceno-app/ceno-android/sha256sums.txt) |
+| `sha256sums.txt.asc` | 1 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/ceno-app/ceno-android/sha256sums.txt.asc) |
+
+---
+
 <div id="davudsedft--purvpn"></div>
 
 ### davudsedft--purvpn
@@ -178,4 +206,52 @@ sha256sum FILE_NAME
 | File | Size | Download |
 |------|------|----------|
 | `build_info.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mamiiblt/instafel/build_info.json) |
+
+---
+
+<div id="mpv-android--mpv-android"></div>
+
+### mpv-android--mpv-android
+
+🔗 [source](https://github.com/mpv-android/mpv-android) – [<code><small>2026-04-25</small></code>](https://github.com/mpv-android/mpv-android/releases/tag/2026-04-25)
+
+| File | Size | Download |
+|------|------|----------|
+| `app-api29-universal-debug.apk` | 72.5 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-api29-universal-debug.apk) |
+| `app-api29-universal-release.apk` | 66.4 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-api29-universal-release.apk) |
+| `app-default-arm64-v8a-release.apk` | 20.8 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-default-arm64-v8a-release.apk) |
+| `app-default-armeabi-v7a-release.apk` | 20.1 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-default-armeabi-v7a-release.apk) |
+| `app-default-universal-debug.apk` | 72.5 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-default-universal-debug.apk) |
+| `app-default-universal-release.apk` | 66.4 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-default-universal-release.apk) |
+| `app-default-x86-release.apk` | 21.2 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-default-x86-release.apk) |
+| `app-default-x86_64-release.apk` | 22.0 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mpv-android/mpv-android/app-default-x86_64-release.apk) |
+
+---
+
+<div id="vpnhood--vpnhood"></div>
+
+### vpnhood--VpnHood
+
+🔗 [source](https://github.com/vpnhood/VpnHood) – [<code><small>v7.8.805</small></code>](https://github.com/vpnhood/VpnHood/releases/tag/v7.8.805)
+
+| File | Size | Download |
+|------|------|----------|
+| `VpnHoodClient-android-arm64-web.apk` | 17.9 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android-arm64-web.apk) |
+| `VpnHoodClient-android-arm64-web.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android-arm64-web.json) |
+| `VpnHoodClient-android-web.apk` | 71.7 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android-web.apk) |
+| `VpnHoodClient-android-web.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android-web.json) |
+| `VpnHoodClient-android.aab` | 74.7 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android.aab) |
+| `VpnHoodClient-android.aab.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android.aab.json) |
+| `VpnHoodClient-android.apk` | 74.6 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android.apk) |
+| `VpnHoodClient-android.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-android.json) |
+| `VpnHoodClient-linux-arm64.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-linux-arm64.json) |
+| `VpnHoodClient-linux-arm64.sh` | 3 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-linux-arm64.sh) |
+| `VpnHoodClient-linux-arm64.tar.gz` | 45.0 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-linux-arm64.tar.gz) |
+| `VpnHoodClient-linux-x64.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-linux-x64.json) |
+| `VpnHoodClient-linux-x64.sh` | 3 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-linux-x64.sh) |
+| `VpnHoodClient-linux-x64.tar.gz` | 47.1 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-linux-x64.tar.gz) |
+| `VpnHoodClient-linux.sh` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-linux.sh) |
+| `VpnHoodClient-win-x64.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-win-x64.json) |
+| `VpnHoodClient-win-x64.msi` | 86.8 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-win-x64.msi) |
+| `VpnHoodClient-win-x64.txt` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/vpnhood/VpnHood/VpnHoodClient-win-x64.txt) |
 <!-- RELEASES_END -->
