@@ -1,2 +1,6 @@
 davudsedft/purvpn
 mamiiblt/instafel
+mpv-android/mpv-android
+vpnhood/VpnHood
+ceno-app/ceno-android
+UnboundTechCo/defyxVPN
