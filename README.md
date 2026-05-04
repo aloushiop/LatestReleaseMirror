@@ -166,16 +166,4 @@ sha256sum FILE_NAME
 | File | Size | Download |
 |------|------|----------|
 | `purvpn-11.9-release.apk` | 80.3 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/davudsedft/purvpn/purvpn-11.9-release.apk) |
-
----
-
-<div id="mamiiblt--instafel"></div>
-
-### mamiiblt--instafel
-
-🔗 [source](https://github.com/mamiiblt/instafel) – [<code><small>v713</small></code>](https://github.com/mamiiblt/instafel/releases/tag/v713)
-
-| File | Size | Download |
-|------|------|----------|
-| `build_info.json` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/mamiiblt/instafel/build_info.json) |
 <!-- RELEASES_END -->
