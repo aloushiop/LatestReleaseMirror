@@ -157,6 +157,19 @@ sha256sum FILE_NAME
 
 
 <!-- RELEASES_START -->
+<div id="kunzisoft--keepassdx"></div>
+
+### Kunzisoft--KeePassDX
+
+🔗 [source](https://github.com/Kunzisoft/KeePassDX) – [<code><small>4.4.0</small></code>](https://github.com/Kunzisoft/KeePassDX/releases/tag/4.4.0)
+
+| File | Size | Download |
+|------|------|----------|
+| `KeePassDX-4.4.0-free.apk` | 15.7 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/Kunzisoft/KeePassDX/KeePassDX-4.4.0-free.apk) |
+| `KeePassDX-4.4.0-libre.apk` | 15.7 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/Kunzisoft/KeePassDX/KeePassDX-4.4.0-libre.apk) |
+
+---
+
 <div id="revanced--revanced-manager"></div>
 
 ### ReVanced--revanced-manager
