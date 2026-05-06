@@ -4,3 +4,4 @@ mpv-android/mpv-android
 vpnhood/VpnHood
 ceno-app/ceno-android
 UnboundTechCo/defyxVPN
+ReVanced/revanced-manager
