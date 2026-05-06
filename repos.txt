@@ -5,3 +5,4 @@ vpnhood/VpnHood
 ceno-app/ceno-android
 UnboundTechCo/defyxVPN
 ReVanced/revanced-manager
+Kunzisoft/KeePassDX
