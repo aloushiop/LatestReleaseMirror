@@ -157,6 +157,19 @@ sha256sum FILE_NAME
 
 
 <!-- RELEASES_START -->
+<div id="revanced--revanced-manager"></div>
+
+### ReVanced--revanced-manager
+
+🔗 [source](https://github.com/ReVanced/revanced-manager) – [<code><small>v2.6.0</small></code>](https://github.com/ReVanced/revanced-manager/releases/tag/v2.6.0)
+
+| File | Size | Download |
+|------|------|----------|
+| `revanced-manager-2.6.0.apk` | 44.6 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/ReVanced/revanced-manager/revanced-manager-2.6.0.apk) |
+| `revanced-manager-2.6.0.apk.asc` | 0 KB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/ReVanced/revanced-manager/revanced-manager-2.6.0.apk.asc) |
+
+---
+
 <div id="unboundtechco--defyxvpn"></div>
 
 ### UnboundTechCo--defyxVPN
@@ -201,7 +214,7 @@ sha256sum FILE_NAME
 
 ### mamiiblt--instafel
 
-🔗 [source](https://github.com/mamiiblt/instafel) – [<code><small>v713</small></code>](https://github.com/mamiiblt/instafel/releases/tag/v713)
+🔗 [source](https://github.com/mamiiblt/instafel) – [<code><small>v714</small></code>](https://github.com/mamiiblt/instafel/releases/tag/v714)
 
 | File | Size | Download |
 |------|------|----------|
