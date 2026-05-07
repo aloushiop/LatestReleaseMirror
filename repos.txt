@@ -5,4 +5,4 @@ vpnhood/VpnHood
 ceno-app/ceno-android
 UnboundTechCo/defyxVPN
 ReVanced/revanced-manager
-ImranR98/Obtainium
+therealaleph/MasterHttpRelayVPN-RUST
