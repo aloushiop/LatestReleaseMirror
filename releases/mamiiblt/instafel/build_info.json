@@ -6,20 +6,20 @@
     "channel": "release"
   },
   "patcherData": {
-    "buildDate": "2026-05-06T23:10:34.031355354Z",
-    "generationId": "34738702798",
-    "iflVersion": 715,
-    "igVersion": "429.0.0.0.53",
-    "igVersionCode": "383502894"
+    "buildDate": "2026-05-07T02:56:09.555942857Z",
+    "generationId": "96443213806",
+    "iflVersion": 716,
+    "igVersion": "429.0.0.0.62",
+    "igVersionCode": "383503371"
   },
   "fileInfos": {
     "unclone": {
-      "fileName": "instafel_uc_v715_429.0.0.0.53.apk",
-      "fileHash": "46395f7c597e3ffb133d9fa67794c9e9"
+      "fileName": "instafel_uc_v716_429.0.0.0.62.apk",
+      "fileHash": "f0fb31fd7ed72f60ffc09f4e20453802"
     },
     "clone": {
-      "fileName": "instafel_c_v715_429.0.0.0.53.apk",
-      "fileHash": "3617e2a6a1226b3533bf2665fd02ee9c"
+      "fileName": "instafel_c_v716_429.0.0.0.62.apk",
+      "fileHash": "6cd2b0afcf7169994b454f7257a075c5"
     }
   }
 }
