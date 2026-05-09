@@ -131,16 +131,47 @@ jobs:
               # Delete all assets except .version and .filter (they will be overwritten)
               find "$target_dir" -type f ! -name '.version' ! -name '.filter' -delete 2>/dev/null || true
 
-              echo "  Downloading matching assets (skipping >100 MB)..."
+              echo "  Downloading matching assets..."
               while read -r url; do
                 filename=$(basename "$url")
+                # Check file size using HEAD request (follow redirects)
                 size=$(curl -sL -I "$url" | grep -i content-length | tail -1 | awk '{print $2}' | tr -d '\r')
+                # Download if size < 100 MB or unknown
                 if [ -n "$size" ] && [ "$size" -gt 104857600 ]; then
-                  echo "    SKIP $filename – $size bytes (>100 MB)"
-                  continue
+                  echo "    File $filename is ${size} bytes (>100 MB) – will split after download"
                 fi
                 echo "    Downloading $filename"
                 wget -q --show-progress "$url" -P "$target_dir"
+
+                # --- SPLITTING (from PR) ---
+                filepath="$target_dir/$filename"
+                if [ -f "$filepath" ]; then
+                  file_size=$(stat -c%s "$filepath" 2>/dev/null || stat -f%z "$filepath" 2>/dev/null)
+                                    if [ -n "$file_size" ] && [ "$file_size" -gt 104857600 ]; then
+                    echo "  File larger than 100 MB (${file_size} bytes). Splitting into 90 MB parts..."
+                    (
+                      cd "$target_dir"
+                      # Use --numeric-suffixes=1 if available (GNU split 8.16+)
+                      if split --help 2>&1 | grep -q -- "--numeric-suffixes"; then
+                        split -b 90m --numeric-suffixes=1 -a 3 "$filename" "${filename}."
+                      else
+                        # Fallback: split from 000 then rename
+                        split -b 90m -d -a 3 "$filename" "${filename}."
+                        files=($(ls "${filename}."??? | sort))
+                        for i in "${!files[@]}"; do
+                          new=$(printf "%s.%03d" "$filename" $((i+1)))
+                          mv "${files[$i]}" "$new"
+                        done
+                      fi
+                      if ls "${filename}."??? 1>/dev/null 2>&1; then
+                        rm "$filename"
+                        echo "  Split done. Parts: $(ls "${filename}."??? 2>/dev/null | wc -l) files (starting from .001)"
+                      else
+                        echo "  Splitting failed for $filename"
+                      fi
+                    ) || echo "  Splitting failed for $filename"
+                  fi
+                fi
               done < <(curl -s "https://api.github.com/repos/$repo_path/releases/tags/$tag" \
                 | jq -r --arg pat "$filter_pattern" '.assets[].browser_download_url | select(test($pat; "i"))')
 
@@ -189,8 +220,27 @@ jobs:
             printf '<!-- RELEASES_END -->\n' >> README.md
           fi
 
+          # ------------------------------------------------------------
+          # Build a mapping of multipart part counts
+          # ------------------------------------------------------------
+          declare -A PART_COUNTS
+          # First pass: collect all asset files and group by base name
+          while read -r asset_path; do
+            asset=$(basename "$asset_path")
+            # Skip metadata files
+            [[ "$asset" == ".version" || "$asset" == "release.json" || "$asset" == ".filter" ]] && continue
+            # Check if it's a part file (ends with . followed by exactly 3 digits)
+            if [[ "$asset" =~ \.[0-9]{3}$ ]]; then
+              base="${asset%.???}"  # remove last dot and three digits
+              PART_COUNTS["$base"]=$(( ${PART_COUNTS["$base"]} + 1 ))
+            fi
+          done < <(find releases -type f)
+
+          # ------------------------------------------------------------
+          # Generate the release table with multipart awareness
+          # ------------------------------------------------------------
           TABLE=$(mktemp)
-          first=true
+          first_repo=true
           find releases -type f -name ".version" -printf "%h\n" | sort | while read -r repo_dir; do
             asset_count=$(find "$repo_dir" -type f ! -name ".version" ! -name "release.json" ! -name ".filter" | wc -l)
             [ "$asset_count" -eq 0 ] && continue
@@ -201,12 +251,12 @@ jobs:
             url="https://github.com/$owner/$repo"
             anchor=$(echo "${owner}--${repo}" | tr '[:upper:]' '[:lower:]')
 
-            if [ "$first" = false ]; then
+            if [ "$first_repo" = false ]; then
               echo "" >> "$TABLE"
               echo "---" >> "$TABLE"
               echo "" >> "$TABLE"
             fi
-            first=false
+            first_repo=false
 
             echo "<div id=\"$anchor\"></div>" >> "$TABLE"
             echo "" >> "$TABLE"
@@ -217,7 +267,8 @@ jobs:
             echo "| File | Size | Download |" >> "$TABLE"
             echo "|------|------|----------|" >> "$TABLE"
 
-            find "$repo_dir" -type f ! -name ".version" ! -name "release.json" ! -name ".filter" -printf "%f\n" | sort | while read -r asset; do
+            # List asset files (excluding metadata) and sort them naturally
+            find "$repo_dir" -type f ! -name ".version" ! -name "release.json" ! -name ".filter" -printf "%f\n" | sort -V | while read -r asset; do
               asset_path="$repo_dir/$asset"
               size=$(stat -c%s "$asset_path" 2>/dev/null || stat -f%z "$asset_path" 2>/dev/null)
               if [ "$size" -lt 1048576 ]; then
@@ -227,10 +278,27 @@ jobs:
                 s="${sm} MB"
               fi
               link="https://raw.githubusercontent.com/${{ github.repository }}/main/$asset_path"
-              echo "| \`$asset\` | $s | [⬇️ Download]($link) |" >> "$TABLE"
+
+              # Check if this asset is a part of a multipart archive
+              if [[ "$asset" =~ \.[0-9]{3}$ ]]; then
+                base="${asset%.???}"
+                total_parts=${PART_COUNTS["$base"]}
+                # Extract the part number from the extension
+                part_num=${asset##*.}
+                # Remove leading zeros for display
+                part_num=$((10#$part_num))
+                display_name="$base (part $part_num of $total_parts)"
+                download_label="⬇️ Download (Part $part_num)"
+              else
+                display_name="$asset"
+                download_label="⬇️ Download"
+              fi
+
+              echo "| \`$display_name\` | $s | [$download_label]($link) |" >> "$TABLE"
             done
           done
 
+          # Replace content between markers using awk
           awk -v start="<!-- RELEASES_START -->" -v end="<!-- RELEASES_END -->" -v new="$(cat "$TABLE")" '
             BEGIN { p=1 }
             $0 == start { print; print new; p=0; next }

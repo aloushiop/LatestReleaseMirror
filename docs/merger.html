@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split File Merger</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e2b3c 0%, #0f1a24 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 650px;
+            width: 100%;
+            padding: 2rem;
+        }
+        h1 { margin-top: 0; color: #1e4660; }
+        .dropzone {
+            border: 2px dashed #7c9eb3;
+            border-radius: 24px;
+            background: #f8fafc;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            margin: 1rem 0;
+            transition: all 0.2s;
+        }
+        .dropzone.drag-over { border-color: #2a7f6e; background: #e6f4f0; }
+        .file-list {
+            background: #f1f5f9;
+            border-radius: 20px;
+            padding: 1rem;
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 1rem 0;
+        }
+        .file-item {
+            font-family: monospace;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-bottom: 1px solid #cbd5e1;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            background: #2a7f6e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 12px;
+        }
+        button:disabled { background: #9bb5c4; cursor: not-allowed; }
+        .btn-secondary { background: #4a627a; margin-top: 8px; }
+        .progress { background: #e2e8f0; border-radius: 40px; height: 24px; overflow: hidden; margin-top: 16px; display: none; }
+        .progress-bar { background: #2a7f6e; width: 0%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; }
+        .message { margin-top: 16px; padding: 12px; border-radius: 20px; font-size: 0.9rem; }
+        .error { background: #fee2e2; color: #991b1b; }
+        .success { background: #dcfce7; color: #166534; }
+        hr { margin: 20px 0; border: none; border-top: 1px solid #cbd5e1; }
+        footer { font-size: 0.75rem; text-align: center; color: #6c86a3; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>🔗 Split File Merger</h1>
+    <p>Combine <code>.001</code>, <code>.002</code>, … parts into the original file.</p>
+    <div id="dropzone" class="dropzone">
+        📂 Drag & drop split parts here or click to select
+        <input type="file" id="fileInput" multiple style="display:none">
+    </div>
+    <div id="fileListContainer" style="display: none;">
+        <div class="file-list" id="fileList"></div>
+        <button id="clearBtn" class="btn-secondary">Clear all</button>
+    </div>
+    <button id="mergeBtn" disabled>Merge & Download</button>
+    <div id="progress" class="progress"><div id="progressBar" class="progress-bar"></div></div>
+    <div id="message"></div>
+    <hr>
+    <ul style="font-size:0.85rem;">
+        <li>All parts must be in the same folder and named in order (<code>.001</code>, <code>.002</code>, …).</li>
+        <li>The merged file will be saved with the original name (without <code>.001</code>).</li>
+        <li>Works offline – no data leaves your computer.</li>
+    </ul>
+    <footer>⚡ Free & offline | Supports any file type</footer>
+</div>
+
+<script>
+    let selectedFiles = [];
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const fileListContainer = document.getElementById('fileListContainer');
+    const fileListDiv = document.getElementById('fileList');
+    const mergeBtn = document.getElementById('mergeBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const progressDiv = document.getElementById('progress');
+    const progressBar = document.getElementById('progressBar');
+    const messageDiv = document.getElementById('message');
+
+    // Helper: show a temporary message
+    function showMessage(text, isError = false) {
+        messageDiv.innerHTML = text;
+        messageDiv.className = `message ${isError ? 'error' : 'success'}`;
+        setTimeout(() => {
+            if (messageDiv.innerHTML === text) messageDiv.innerHTML = '';
+        }, 5000);
+    }
+
+    // Sort parts numerically by the trailing number (e.g., .001 -> 1, .002 -> 2)
+    function sortParts(files) {
+        return files.sort((a, b) => {
+            const numA = parseInt(a.name.match(/\.(\d+)$/)?.[1] || '0', 10);
+            const numB = parseInt(b.name.match(/\.(\d+)$/)?.[1] || '0', 10);
+            return numA - numB;
+        });
+    }
+
+    // Update UI file list and enable/disable merge button
+    function updateUI() {
+        if (selectedFiles.length === 0) {
+            fileListContainer.style.display = 'none';
+            mergeBtn.disabled = true;
+            return;
+        }
+        fileListContainer.style.display = 'block';
+        fileListDiv.innerHTML = '';
+        const sorted = sortParts([...selectedFiles]);
+        sorted.forEach((file, idx) => {
+            const div = document.createElement('div');
+            div.className = 'file-item';
+            div.innerHTML = `<span>${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+                             <button class="remove-file" data-index="${idx}" style="background:none; border:none; color:#b91c1c; font-weight:bold; cursor:pointer;">✖</button>`;
+            fileListDiv.appendChild(div);
+        });
+        // Attach remove events (re-fetch after DOM update)
+        document.querySelectorAll('.remove-file').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const idx = parseInt(btn.getAttribute('data-index'), 10);
+                if (!isNaN(idx)) {
+                    selectedFiles.splice(idx, 1);
+                    updateUI();
+                }
+                e.stopPropagation();
+            });
+        });
+        mergeBtn.disabled = false;
+    }
+
+    // Add files (basic validation: must have .001, .002, etc.)
+    function addFiles(files) {
+        const validPattern = /\.\d{3}$/;
+        const newFiles = [];
+        for (const f of files) {
+            if (!validPattern.test(f.name)) {
+                showMessage(`⚠️ Skipped "${f.name}" – filename must end with .001, .002, ...`, true);
+                continue;
+            }
+            newFiles.push(f);
+        }
+        if (newFiles.length) {
+            selectedFiles.push(...newFiles);
+            updateUI();
+        }
+    }
+
+    // Drag & drop
+    dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+    dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('drag-over');
+        addFiles(Array.from(e.dataTransfer.files));
+    });
+    dropzone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+        addFiles(Array.from(e.target.files));
+        fileInput.value = '';
+    });
+
+    clearBtn.addEventListener('click', () => {
+        selectedFiles = [];
+        updateUI();
+        showMessage('Cleared all files.', false);
+    });
+
+    // Merge function: concatenate parts in order
+    mergeBtn.addEventListener('click', async () => {
+        if (selectedFiles.length === 0) return;
+        const sorted = sortParts([...selectedFiles]);
+        // Check that the numbering is contiguous starting from 1
+        let expected = 1;
+        let valid = true;
+        for (const f of sorted) {
+            const num = parseInt(f.name.match(/\.(\d+)$/)?.[1] || '0', 10);
+            if (num !== expected) {
+                showMessage(`❌ Part numbering error: expected .${expected.toString().padStart(3,'0')}, got ${f.name}`, true);
+                valid = false;
+                break;
+            }
+            expected++;
+        }
+        if (!valid) return;
+
+        mergeBtn.disabled = true;
+        progressDiv.style.display = 'block';
+        let loaded = 0;
+        const total = sorted.reduce((sum, f) => sum + f.size, 0);
+        progressBar.style.width = '0%';
+        progressBar.innerText = '0%';
+
+        try {
+            const chunks = [];
+            for (const file of sorted) {
+                const buffer = await file.arrayBuffer();
+                chunks.push(new Uint8Array(buffer));
+                loaded += file.size;
+                const percent = Math.floor((loaded / total) * 100);
+                progressBar.style.width = `${percent}%`;
+                progressBar.innerText = `${percent}%`;
+            }
+            const combined = new Uint8Array(total);
+            let offset = 0;
+            for (const chunk of chunks) {
+                combined.set(chunk, offset);
+                offset += chunk.length;
+            }
+            // Original name without the .001 suffix
+            const firstPart = sorted[0];
+            const originalName = firstPart.name.replace(/\.\d{3}$/, '');
+            const blob = new Blob([combined]);
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = originalName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showMessage(`✅ Merged successfully! File saved as "${originalName}"`, false);
+            // Clear the list after successful merge
+            selectedFiles = [];
+            updateUI();
+        } catch (err) {
+            showMessage(`❌ Merge failed: ${err.message}`, true);
+        } finally {
+            progressDiv.style.display = 'none';
+            mergeBtn.disabled = false;
+        }
+    });
+</script>
+</body>
+</html>
