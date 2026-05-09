@@ -6,4 +6,4 @@ ceno-app/ceno-android
 UnboundTechCo/defyxVPN
 ReVanced/revanced-manager
 therealaleph/MasterHttpRelayVPN-RUST
-https://github.com/crimera/twitter-apk
+crimera/twitter-apk
