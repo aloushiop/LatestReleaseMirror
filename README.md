@@ -270,7 +270,7 @@ sha256sum FILE_NAME
 
 ### mamiiblt--instafel
 
-🔗 [source](https://github.com/mamiiblt/instafel) – [<code><small>v715</small></code>](https://github.com/mamiiblt/instafel/releases/tag/v715)
+🔗 [source](https://github.com/mamiiblt/instafel) – [<code><small>v716</small></code>](https://github.com/mamiiblt/instafel/releases/tag/v716)
 
 | File | Size | Download |
 |------|------|----------|
@@ -301,15 +301,15 @@ sha256sum FILE_NAME
 
 ### therealaleph--MasterHttpRelayVPN-RUST
 
-🔗 [source](https://github.com/therealaleph/MasterHttpRelayVPN-RUST) – [<code><small>v1.9.15</small></code>](https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/tag/v1.9.15)
+🔗 [source](https://github.com/therealaleph/MasterHttpRelayVPN-RUST) – [<code><small>v1.9.18</small></code>](https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/tag/v1.9.18)
 
 | File | Size | Download |
 |------|------|----------|
-| `mhrv-rs-android-arm64-v8a-v1.9.15.apk` | 18.6 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-arm64-v8a-v1.9.15.apk) |
-| `mhrv-rs-android-armeabi-v7a-v1.9.15.apk` | 16.1 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-armeabi-v7a-v1.9.15.apk) |
-| `mhrv-rs-android-universal-v1.9.15.apk` | 41.1 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-universal-v1.9.15.apk) |
-| `mhrv-rs-android-x86-v1.9.15.apk` | 19.3 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-x86-v1.9.15.apk) |
-| `mhrv-rs-android-x86_64-v1.9.15.apk` | 19.5 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-x86_64-v1.9.15.apk) |
+| `mhrv-rs-android-arm64-v8a-v1.9.18.apk` | 18.6 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-arm64-v8a-v1.9.18.apk) |
+| `mhrv-rs-android-armeabi-v7a-v1.9.18.apk` | 16.1 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-armeabi-v7a-v1.9.18.apk) |
+| `mhrv-rs-android-universal-v1.9.18.apk` | 41.1 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-universal-v1.9.18.apk) |
+| `mhrv-rs-android-x86-v1.9.18.apk` | 19.3 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-x86-v1.9.18.apk) |
+| `mhrv-rs-android-x86_64-v1.9.18.apk` | 19.5 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-android-x86_64-v1.9.18.apk) |
 | `mhrv-rs-linux-amd64.tar.gz` | 9.8 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-linux-amd64.tar.gz) |
 | `mhrv-rs-linux-arm64.tar.gz` | 2.1 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-linux-arm64.tar.gz) |
 | `mhrv-rs-linux-musl-amd64.tar.gz` | 2.3 MB | [⬇️ Download](https://raw.githubusercontent.com/aloushiop/LatestReleaseMirror/main/releases/therealaleph/MasterHttpRelayVPN-RUST/mhrv-rs-linux-musl-amd64.tar.gz) |
